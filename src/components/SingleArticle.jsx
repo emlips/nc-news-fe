@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import SingleArticleCard from "./SingleArticleCard";
 import Comments from "./Comments";
+import ".././stylesheets/SingleArticle.css";
 
 function SingleArticle() {
   const [article, setArticle] = useState({});
@@ -26,7 +27,7 @@ function SingleArticle() {
 
   return (
     <>
-      <SingleArticleCard article={article} />
+      <SingleArticleCard article={article} setArticle={setArticle} />
       <Comments article={article} />
     </>
   );

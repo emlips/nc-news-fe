@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ".././stylesheets/ArticleCard.css";
 
 function ArticleCard({ article }) {
@@ -9,10 +10,16 @@ function ArticleCard({ article }) {
         <h1>{article.title}</h1>
         <h2>By {article.author}</h2>
         <img src={article.article_img_url} alt={article.title} />
-        <p>
-          <ModeCommentIcon />
-          {article.comment_count}
-        </p>
+        <div className="icons">
+          <p>
+            <ModeCommentIcon />
+            {article.comment_count}
+          </p>
+          <p>
+            <ThumbUpIcon />
+            {article.votes}
+          </p>
+        </div>
       </div>
     </Link>
   );
