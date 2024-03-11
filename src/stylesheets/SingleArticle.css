@@ -1,0 +1,8 @@
+#vote-section {
+    display: flex;
+    height: 2em;
+    align-items: center;
+    p {
+        margin-right: 1em;
+    }
+  }
