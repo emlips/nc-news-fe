@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import SingleArticleCard from "./SingleArticleCard";
-import TopicsNav from "./TopicsNav";
+import Comments from "./Comments";
 
 function SingleArticle() {
   const [article, setArticle] = useState({});
@@ -27,6 +27,7 @@ function SingleArticle() {
   return (
     <>
       <SingleArticleCard article={article} />
+      <Comments article={article} />
     </>
   );
 }
