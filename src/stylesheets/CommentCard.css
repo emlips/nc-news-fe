@@ -1,0 +1,25 @@
+.comment-card {
+    background-color: aliceblue;
+    border-radius: 15px;
+    margin: 1em;
+    width: 80%;
+    padding-left: 0.5em;
+}
+
+#comment-author {
+    font-style: italic;
+}
+
+#comment-body {
+    background-color: rgb(193, 228, 242);
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 0.5em;
+    width: 95%;
+    margin: auto;
+}
+
+#comment-date {
+    font-size: 0.75em;
+}
+
