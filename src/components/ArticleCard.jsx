@@ -1,6 +1,6 @@
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
-import "./ArticleCard.css";
-import "./Articles.css";
+import ".././stylesheets/ArticleCard.css";
+
 
 function ArticleCard({ article }) {
   return (

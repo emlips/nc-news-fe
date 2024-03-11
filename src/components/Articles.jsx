@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TopicsNav from "./TopicsNav";
 import ArticleCard from "./ArticleCard";
-import "./ArticleCard.css";
+import ".././stylesheets/ArticleCard.css";
+import ".././stylesheets/Articles.css";
 
 function Articles({ articles, setArticles }) {
   const [currTopic, setCurrTopic] = useState("");
