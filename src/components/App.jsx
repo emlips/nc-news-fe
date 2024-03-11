@@ -3,6 +3,7 @@ import { useState } from "react";
 import Header from "./Header";
 import Home from "./Home";
 import Articles from "./Articles";
+import SingleArticle from "./SingleArticle";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -17,9 +18,10 @@ function App() {
           element={<Articles articles={articles} setArticles={setArticles} />}
         />
         <Route
-          path="/articles/:topic"
+          path="/:topic"
           element={<Articles articles={articles} setArticles={setArticles} />}
         />
+        <Route path="/articles/:article_id" element={<SingleArticle />} />
       </Routes>
     </>
   );
