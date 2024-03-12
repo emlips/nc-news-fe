@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import TopicsNav from "./TopicsNav";
 import ArticleCard from "./ArticleCard";
+import { getArticles } from "../api";
 import ".././stylesheets/ArticleCard.css";
 import ".././stylesheets/Articles.css";
 
@@ -11,20 +11,21 @@ function Articles({ articles, setArticles }) {
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
 
-  const getArticles = () => {
+  const fetchArticles = () => {
     setIsLoading(true);
-    let queryStr = "https://nc-news-1d1v.onrender.com/api/articles";
+    let arg = undefined;
     if (topic) {
-      queryStr += `?topic=${topic}`;
+      arg = topic;
     }
-    return axios.get(queryStr).then(({ data }) => {
-      setArticles(data.articles);
+    getArticles(arg)
+    .then((articles) => {
+      setArticles(articles);
       setIsLoading(false);
     });
   };
 
   useEffect(() => {
-    getArticles();
+    fetchArticles();
   }, [currTopic]);
 
   if (isLoading) return <p>Loading...</p>;

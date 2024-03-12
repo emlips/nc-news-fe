@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { getTopics } from "../api";
 
 function TopicsNav({ setCurrTopic }) {
   const [topics, setTopics] = useState([]);
 
-  const getTopics = () => {
-    return axios
-      .get("https://nc-news-1d1v.onrender.com/api/topics")
-      .then(({ data }) => {
-        setTopics(data.topics);
-      });
+  const fetchTopics = () => {
+    getTopics()
+    .then((topicsFromApi) => {
+      setTopics(topicsFromApi)
+    })
   };
 
-  getTopics();
+  fetchTopics();
+
   return (
     <nav>
       <Link

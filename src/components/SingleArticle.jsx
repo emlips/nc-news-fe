@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import SingleArticleCard from "./SingleArticleCard";
 import Comments from "./Comments";
+import { getSingleArticle } from "../api";
 import ".././stylesheets/SingleArticle.css";
 
 function SingleArticle() {
@@ -11,12 +11,11 @@ function SingleArticle() {
   const { article_id } = useParams();
 
   const getArticleById = () => {
-    return axios
-      .get(`https://nc-news-1d1v.onrender.com/api/articles/${article_id}`)
-      .then(({ data }) => {
-        setArticle(data.article);
-        setIsLoading(false);
-      });
+    getSingleArticle(article_id)
+    .then((articleFromApi) => {
+      setArticle(articleFromApi)
+      setIsLoading(false)
+    })
   };
 
   useEffect(() => {
