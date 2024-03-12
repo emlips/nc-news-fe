@@ -3,7 +3,12 @@ import { useContext } from "react";
 import UserContext from "../contexts/User";
 import { postComment } from "../api";
 
-function PostComment({ article, setComments, setCommentCount, setCommentPage }) {
+function PostComment({
+  article,
+  setComments,
+  setCommentCount,
+  setCommentPage,
+}) {
   const { loggedInUser } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
 
@@ -31,7 +36,9 @@ function PostComment({ article, setComments, setCommentCount, setCommentPage }) 
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
       ></textarea>
-      <button type="submit">Post Comment</button>
+      <button type="submit" disabled={!(newComment.length > 0) ? true : false}>
+        Post Comment
+      </button>
     </form>
   );
 }
