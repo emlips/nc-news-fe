@@ -26,8 +26,8 @@ function Comments({ article }) {
         setCommentCount={setCommentCount}
       />
       <p>Total comments: {commentCount}</p>
-      {comments.map((comment) => {
-        return <CommentCard key={comment.comment_id} comment={comment} />;
+      {comments.map((comment, index) => {
+        return <CommentCard key={index} comment={comment} />;
       })}
     </>
   );
