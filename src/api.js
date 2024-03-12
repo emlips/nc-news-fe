@@ -33,6 +33,11 @@ export const getMoreComments = (article_id, pageNum) => {
   });
 };
 
+export const deleteComment = (comment_id) => {
+  return newsApi
+  .delete(`/comments/${comment_id}`)
+}
+
 export const getTopics = () => {
   return newsApi.get("/topics").then(({ data }) => {
     return data.topics;
