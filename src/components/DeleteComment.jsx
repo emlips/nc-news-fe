@@ -1,5 +1,4 @@
 import { deleteComment } from "../api";
-import { useEffect } from "react";
 
 function DeleteComment({ comment, setComments, setCommentCount }) {
   const handleClick = () => {

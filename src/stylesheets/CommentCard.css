@@ -23,6 +23,30 @@
   font-size: 0.75em;
 }
 
+#post-comment-block {
+  border-radius: 15px;
+  margin: 1em;
+  padding-left: 0.5em;
+  textarea {
+    border: 1px black solid;
+    display: block;
+    width: 30em;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 0.5em;
+  }
+  button {
+    width: 10em;
+    height: 2em;
+    background-color: white;
+  }
+  button:hover {
+    background-color: darkblue;
+    color: lightcyan;
+    cursor: pointer;
+  }
+}
+
 .delete-comment-section {
   display: flex;
   justify-content: space-between;
@@ -30,6 +54,17 @@
   padding-bottom: 0.5em;
   height: 2em;
   button {
-    margin-top: 0.5em;
+    width: 5em;
+    height: 2em;
+    margin: 1em 1em 0 0;
+    background-color: white;
+  }
+  button:hover {
+    width: 5em;
+    height: 2em;
+    margin: 1em 1em 0 0;
+    background-color: darkblue;
+    color: lightcyan;
+    cursor: pointer;
   }
 }
