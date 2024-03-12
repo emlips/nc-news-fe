@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import ModeCommentIcon from "@mui/icons-material/ModeComment";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ".././stylesheets/ArticleCard.css";
 
 function ArticleCard({ article }) {
@@ -12,11 +12,11 @@ function ArticleCard({ article }) {
         <img src={article.article_img_url} alt={article.title} />
         <div className="icons">
           <p>
-            <ModeCommentIcon />
+            <ModeCommentOutlinedIcon />
             {article.comment_count}
           </p>
           <p>
-            <ThumbUpIcon />
+            <ThumbUpOutlinedIcon />
             {article.votes}
           </p>
         </div>
