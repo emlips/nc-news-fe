@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import CommentCard from "./CommentCard";
 import PostComment from "./PostComment";
 import { getComments, getMoreComments } from "../api";
+import '../stylesheets/Comments.css'
 
 function Comments({ article }) {
   const [comments, setComments] = useState([]);
@@ -27,7 +28,7 @@ function Comments({ article }) {
   };
 
   return (
-    <>
+    <section className="comments-section">
       <h3>Comments:</h3>
       <PostComment
         article={article}
@@ -61,7 +62,7 @@ function Comments({ article }) {
       <p>
         Viewing page {commentPage} of {totalPages}
       </p>
-    </>
+    </section>
   );
 }
 
