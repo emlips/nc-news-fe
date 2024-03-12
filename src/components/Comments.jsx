@@ -15,7 +15,7 @@ function Comments({ article }) {
     getComments(article.article_id).then((commentsFromApi) => {
       setComments(commentsFromApi);
     });
-  }, [comments]);
+  }, []);
 
   const loadComments = (num) => {
     const page = commentPage + num;
