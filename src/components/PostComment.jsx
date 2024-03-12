@@ -3,7 +3,7 @@ import { useContext } from "react";
 import UserContext from "../contexts/User";
 import { postComment } from "../api";
 
-function PostComment({ article, setComments, setCommentCount }) {
+function PostComment({ article, setComments, setCommentCount, setCommentPage }) {
   const { loggedInUser } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
 
