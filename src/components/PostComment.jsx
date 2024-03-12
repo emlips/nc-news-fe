@@ -3,7 +3,7 @@ import { useContext } from "react";
 import UserContext from "../contexts/User";
 import axios from "axios";
 
-function PostComment({ article, setComments }) {
+function PostComment({ article, setComments, setCommentCount }) {
   const { loggedInUser } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
   const commentsApi = axios.create({
@@ -18,6 +18,9 @@ function PostComment({ article, setComments }) {
     };
     return commentsApi.post("/comments", commentToPost).then(({ data }) => {
       setNewComment("");
+      setCommentCount((currCount) => {
+        return currCount +1
+      })
       setComments((currComments) => {
         return [data.newComment, ...currComments];
       });

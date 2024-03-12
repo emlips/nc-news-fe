@@ -5,6 +5,7 @@ import PostComment from "./PostComment";
 
 function Comments({ article }) {
   const [comments, setComments] = useState([]);
+  const [commentCount, setCommentCount] = useState(article.comment_count)
 
   const commentsApi = axios.create({
     baseURL: "https://nc-news-1d1v.onrender.com/api/articles",
@@ -25,8 +26,8 @@ function Comments({ article }) {
   return (
     <>
       <h3>Comments:</h3>
-      <PostComment article={article} setComments={setComments}/>
-      <p>Total comments: {article.comment_count}</p>
+      <PostComment article={article} setComments={setComments} setCommentCount={setCommentCount}/>
+      <p>Total comments: {commentCount}</p>
       {comments.map((comment) => {
         return <CommentCard key={comment.comment_id} comment={comment} />;
       })}
