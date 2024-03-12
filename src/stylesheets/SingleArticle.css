@@ -1,8 +1,27 @@
 #vote-section {
-    display: flex;
-    height: 2em;
-    align-items: center;
-    p {
-        margin-right: 1em;
-    }
+  display: flex;
+  height: 2em;
+  align-items: center;
+  p {
+    margin-right: 1em;
   }
+}
+
+button {
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 5px;
+  margin: 0.1em;
+}
+
+.up-voted {
+  button {
+    background-color: lightgreen;
+  }
+}
+
+.down-voted {
+  button {
+    background-color: lightcoral;
+  }
+}
