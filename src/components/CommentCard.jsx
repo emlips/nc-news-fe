@@ -6,7 +6,11 @@ function CommentCard({ comment }) {
       <p id="comment-author">{comment.author}</p>
       <p id="comment-date">
         Posted{" "}
-        {comment.created_at ? comment.created_at.slice(0, 10) : "just now"}
+        {comment.created_at
+          ? comment.created_at.slice(0, 10) +
+            " at " +
+            comment.created_at.slice(11, 16)
+          : "just now"}
       </p>
       <p id="comment-body">{comment.body}</p>
       <p>Votes: {comment.votes}</p>
