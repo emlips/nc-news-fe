@@ -2,14 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getTopics } from "../api";
 
-function TopicsNav({ setCurrTopic, setArticlesPage }) {
+function TopicsNav({ setCurrTopic, setArticlesPage, setSortBy, setOrder }) {
   const [topics, setTopics] = useState([]);
 
   const fetchTopics = () => {
-    getTopics()
-    .then((topicsFromApi) => {
-      setTopics(topicsFromApi)
-    })
+    getTopics().then((topicsFromApi) => {
+      setTopics(topicsFromApi);
+    });
   };
 
   fetchTopics();
@@ -21,8 +20,10 @@ function TopicsNav({ setCurrTopic, setArticlesPage }) {
         to={`/articles`}
         key="all"
         onClick={() => {
-          setCurrTopic(undefined)
+          setCurrTopic(undefined);
           setArticlesPage(1);
+          setSortBy("created_at");
+          setOrder("desc");
         }}
       >
         All
@@ -34,8 +35,10 @@ function TopicsNav({ setCurrTopic, setArticlesPage }) {
             to={`/${topic.slug}`}
             key={topic.slug}
             onClick={() => {
-              setCurrTopic(topic.slug)
+              setCurrTopic(topic.slug);
               setArticlesPage(1);
+              setSortBy("created_at");
+              setOrder("desc");
             }}
           >
             {topic.slug[0].toUpperCase() + topic.slug.slice(1).toLowerCase()}

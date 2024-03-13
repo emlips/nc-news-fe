@@ -9,6 +9,7 @@ function ArticleCard({ article }) {
       <div id="article-card">
         <h1>{article.title}</h1>
         <h2>By {article.author}</h2>
+        <p>Posted {article.created_at.slice(0, 10)}</p>
         <img src={article.article_img_url} alt={article.title} />
         <div className="icons">
           <p>

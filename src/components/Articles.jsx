@@ -42,7 +42,12 @@ function Articles({ articles, setArticles }) {
 
   return (
     <>
-      <TopicsNav setCurrTopic={setCurrTopic} setArticlesPage={setArticlesPage}/>
+      <TopicsNav
+        setCurrTopic={setCurrTopic}
+        setArticlesPage={setArticlesPage}
+        setSortBy={setSortBy}
+        setOrder={setOrder}
+      />
       {topic ? (
         <h1 id="topic-heading">
           {topic[0].toUpperCase() + topic.slice(1).toLowerCase()}
