@@ -10,25 +10,24 @@ import ErrorPage from "./ErrorPage";
 
 function Articles({ articles, setArticles }) {
   const [error, setError] = useState(null);
-  const [currTopic, setCurrTopic] = useState("");
+  const [currTopic, setCurrTopic] = useState(undefined);
   const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("desc");
   const [isLoading, setIsLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const [articlesPage, setArticlesPage] = useState(1);
   const [articlesCount, setArticlesCount] = useState(0);
-  const { topic } = useParams();
 
   const fetchArticles = () => {
     setIsLoading(true);
     let topicArg = undefined;
-    if (topic) {
-      topicArg = topic;
+    if (currTopic) {
+      topicArg = currTopic;
     }
     getArticles(topicArg, sortBy, order, articlesPage)
       .then((articles) => {
         const queryStr = `topic=${
-          topic || "all"
+          currTopic || "all"
         }&sort_by=${sortBy}&order=${order}`;
         setArticles(articles);
         setIsLoading(false);
@@ -60,9 +59,9 @@ function Articles({ articles, setArticles }) {
         setSortBy={setSortBy}
         setOrder={setOrder}
       />
-      {topic ? (
+      {currTopic ? (
         <h1 id="topic-heading">
-          {topic[0].toUpperCase() + topic.slice(1).toLowerCase()}
+          {currTopic[0].toUpperCase() + currTopic.slice(1).toLowerCase()}
         </h1>
       ) : (
         <h1 id="topic-heading">All</h1>
