@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import HighlightArticleCard from "./HighlightArticleCard";
+import '.././stylesheets/HighlightArticles.css'
+import '.././stylesheets/HighlightArticleCard.css'
 
 function HighlightArticles() {
   const [recentArticles, setRecentArticles] = useState([]);
@@ -25,16 +27,16 @@ function HighlightArticles() {
 
   return (
     <>
-      <h1>Newest Articles:</h1>
-      <div className="articles">
+      <h1>Latest:</h1>
+      <div className="highlight-articles">
         {recentArticles.splice(0, 4).map((article) => {
           return (
             <HighlightArticleCard key={article.article_id} article={article} />
           );
         })}
       </div>
-      <h1>Popular Articles:</h1>
-      <div className="articles">
+      <h1>Popular:</h1>
+      <div className="highlight-articles">
         {popularArticles.splice(0, 4).map((article) => {
           return (
             <HighlightArticleCard key={article.article_id} article={article} />

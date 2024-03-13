@@ -2,33 +2,30 @@
   color: black;
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgb(246, 250, 245);
-  display: block;
-  width: 15em;
-  height: 16em;
-  margin: 0.5em;
+  display: flex;
   padding: 0.5em;
   h1 {
     font-size: 1em;
     font-weight: 500;
-    height: 3em;
-  }
-
-  .icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin: 0;
   }
 
   img {
     border-radius: 5px;
-    height: 10em;
-    width: 15em;
+    height: 5em;
+    width: 7.5em;
+  }
+
+  #info {
+    margin-left: 0.5em;
   }
 
   p {
+    padding-top: 0.5em;
+    font-size: 0.75em;
     height: 2em;
-    margin: 0;
     vertical-align: middle;
+    margin: 0;
   }
 }
 
