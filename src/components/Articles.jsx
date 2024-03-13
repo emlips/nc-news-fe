@@ -6,8 +6,10 @@ import SortArticles from "./SortArticles";
 import { getArticles, getArticlesCount } from "../api";
 import ".././stylesheets/ArticleCard.css";
 import ".././stylesheets/Articles.css";
+import ErrorPage from "./ErrorPage";
 
 function Articles({ articles, setArticles }) {
+  const [error, setError] = useState(null);
   const [currTopic, setCurrTopic] = useState("");
   const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("desc");
@@ -23,12 +25,18 @@ function Articles({ articles, setArticles }) {
     if (topic) {
       topicArg = topic;
     }
-    getArticles(topicArg, sortBy, order, articlesPage).then((articles) => {
-      const queryStr = `sort_by=${sortBy}&order=${order}`;
-      setArticles(articles);
-      setIsLoading(false);
-      setSearchParams(queryStr);
-    });
+    getArticles(topicArg, sortBy, order, articlesPage)
+      .then((articles) => {
+        const queryStr = `topic=${
+          topic || "all"
+        }&sort_by=${sortBy}&order=${order}`;
+        setArticles(articles);
+        setIsLoading(false);
+        setSearchParams(queryStr);
+      })
+      .catch((err) => {
+        setError({ err });
+      });
     getArticlesCount(topicArg).then((articlesCountFromApi) => {
       setArticlesCount(articlesCountFromApi);
     });
@@ -37,6 +45,10 @@ function Articles({ articles, setArticles }) {
   useEffect(() => {
     fetchArticles();
   }, [currTopic, sortBy, order, articlesPage]);
+
+  if (error) {
+    return <ErrorPage />;
+  }
 
   if (isLoading) return <p>Loading...</p>;
 

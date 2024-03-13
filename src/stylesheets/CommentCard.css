@@ -41,9 +41,11 @@
     background-color: white;
   }
   button:hover {
-    background-color: darkblue;
-    color: lightcyan;
     cursor: pointer;
+  }
+  button[disabled],
+  button[disabled]:hover {
+    cursor: not-allowed;
   }
 }
 
