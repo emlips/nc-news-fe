@@ -1,32 +1,37 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import TopicsNav from "./TopicsNav";
 import ArticleCard from "./ArticleCard";
+import SortArticles from "./SortArticles";
 import { getArticles } from "../api";
 import ".././stylesheets/ArticleCard.css";
 import ".././stylesheets/Articles.css";
 
 function Articles({ articles, setArticles }) {
   const [currTopic, setCurrTopic] = useState("");
+  const [sortBy, setSortBy] = useState("created_at");
+  const [order, setOrder] = useState("desc");
   const [isLoading, setIsLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams()
   const { topic } = useParams();
 
   const fetchArticles = () => {
     setIsLoading(true);
-    let arg = undefined;
+    let topicArg = undefined;
     if (topic) {
-      arg = topic;
+      topicArg = topic;
     }
-    getArticles(arg)
-    .then((articles) => {
+    getArticles(topicArg, sortBy, order).then((articles) => {
+      const queryStr = `sort_by=${sortBy}&order=${order}`
       setArticles(articles);
       setIsLoading(false);
+      setSearchParams(queryStr)
     });
   };
 
   useEffect(() => {
     fetchArticles();
-  }, [currTopic]);
+  }, [currTopic, sortBy, order]);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -40,6 +45,7 @@ function Articles({ articles, setArticles }) {
       ) : (
         <h1 id="topic-heading">All</h1>
       )}
+      <SortArticles setSortBy={setSortBy} sortBy={sortBy} setOrder={setOrder} order={order}/>
       {articles.length > 0 ? (
         <div className="articles">
           {articles.map((article) => {
