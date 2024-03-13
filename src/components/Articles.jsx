@@ -42,7 +42,7 @@ function Articles({ articles, setArticles }) {
 
   return (
     <>
-      <TopicsNav setCurrTopic={setCurrTopic} />
+      <TopicsNav setCurrTopic={setCurrTopic} setArticlesPage={setArticlesPage}/>
       {topic ? (
         <h1 id="topic-heading">
           {topic[0].toUpperCase() + topic.slice(1).toLowerCase()}

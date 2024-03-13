@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getTopics } from "../api";
 
-function TopicsNav({ setCurrTopic }) {
+function TopicsNav({ setCurrTopic, setArticlesPage }) {
   const [topics, setTopics] = useState([]);
 
   const fetchTopics = () => {
@@ -21,7 +21,8 @@ function TopicsNav({ setCurrTopic }) {
         to={`/articles`}
         key="all"
         onClick={() => {
-          setCurrTopic(undefined);
+          setCurrTopic(undefined)
+          setArticlesPage(1);
         }}
       >
         All
@@ -33,7 +34,8 @@ function TopicsNav({ setCurrTopic }) {
             to={`/${topic.slug}`}
             key={topic.slug}
             onClick={() => {
-              setCurrTopic(topic.slug);
+              setCurrTopic(topic.slug)
+              setArticlesPage(1);
             }}
           >
             {topic.slug[0].toUpperCase() + topic.slug.slice(1).toLowerCase()}
