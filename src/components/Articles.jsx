@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import TopicsNav from "./TopicsNav";
 import ArticleCard from "./ArticleCard";
 import SortArticles from "./SortArticles";
-import { getArticles } from "../api";
+import { getArticles, getArticlesCount } from "../api";
 import ".././stylesheets/ArticleCard.css";
 import ".././stylesheets/Articles.css";
 
@@ -12,7 +12,9 @@ function Articles({ articles, setArticles }) {
   const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("desc");
   const [isLoading, setIsLoading] = useState(true);
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [articlesPage, setArticlesPage] = useState(1);
+  const [articlesCount, setArticlesCount] = useState(0);
   const { topic } = useParams();
 
   const fetchArticles = () => {
@@ -21,17 +23,20 @@ function Articles({ articles, setArticles }) {
     if (topic) {
       topicArg = topic;
     }
-    getArticles(topicArg, sortBy, order).then((articles) => {
-      const queryStr = `sort_by=${sortBy}&order=${order}`
+    getArticles(topicArg, sortBy, order, articlesPage).then((articles) => {
+      const queryStr = `sort_by=${sortBy}&order=${order}`;
       setArticles(articles);
       setIsLoading(false);
-      setSearchParams(queryStr)
+      setSearchParams(queryStr);
+    });
+    getArticlesCount(topicArg).then((articlesCountFromApi) => {
+      setArticlesCount(articlesCountFromApi);
     });
   };
 
   useEffect(() => {
     fetchArticles();
-  }, [currTopic, sortBy, order]);
+  }, [currTopic, sortBy, order, articlesPage]);
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -45,7 +50,28 @@ function Articles({ articles, setArticles }) {
       ) : (
         <h1 id="topic-heading">All</h1>
       )}
-      <SortArticles setSortBy={setSortBy} sortBy={sortBy} setOrder={setOrder} order={order}/>
+      <SortArticles
+        setSortBy={setSortBy}
+        sortBy={sortBy}
+        setOrder={setOrder}
+        order={order}
+        setArticlesPage={setArticlesPage}
+      />
+      <p>
+        Viewing page {articlesPage} of {Math.ceil(articlesCount / 10)}
+      </p>
+      <button
+        onClick={() => setArticlesPage(articlesPage - 1)}
+        disabled={articlesPage === 1 ? true : false}
+      >
+        Previous Page
+      </button>
+      <button
+        onClick={() => setArticlesPage(articlesPage + 1)}
+        disabled={articlesPage === Math.ceil(articlesCount / 10) ? true : false}
+      >
+        Next Page
+      </button>
       {articles.length > 0 ? (
         <div className="articles">
           {articles.map((article) => {

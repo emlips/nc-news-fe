@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CommentCard from "./CommentCard";
 import PostComment from "./PostComment";
 import { getComments, getMoreComments } from "../api";
-import '../stylesheets/Comments.css'
+import "../stylesheets/Comments.css";
 
 function Comments({ article }) {
   const [comments, setComments] = useState([]);
