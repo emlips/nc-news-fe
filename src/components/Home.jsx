@@ -9,7 +9,6 @@ function Home() {
     <>
       <h1>NC News</h1>
       <h2>Welcome back {loggedInUser.username}!</h2>
-      <h3>Most recent Articles:</h3>
       <HighlightArticles />
     </>
   );
