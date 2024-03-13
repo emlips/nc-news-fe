@@ -32,7 +32,7 @@ function TopicsNav({ setCurrTopic, setArticlesPage, setSortBy, setOrder }) {
         return (
           <Link
             className="topics-link"
-            to={`/${topic.slug}`}
+            to={`/articles?topic=${topic.slug}`}
             key={topic.slug}
             onClick={() => {
               setCurrTopic(topic.slug);
