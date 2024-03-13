@@ -4,13 +4,23 @@ const newsApi = axios.create({
   baseURL: "https://nc-news-1d1v.onrender.com/api",
 });
 
-export const getArticles = (topic) => {
-  let queryStr = "/articles";
+export const getArticles = (topic, sortBy, order, page) => {
+  let queryStr = `/articles?sort_by=${sortBy}&order=${order}&p=${page}`;
   if (topic) {
-    queryStr += `?topic=${topic}`;
+    queryStr += `&topic=${topic}`;
   }
   return newsApi.get(queryStr).then(({ data }) => {
     return data.articles;
+  });
+};
+
+export const getArticlesCount = (topic) => {
+  let queryStr = `/articles?limit=10000`;
+  if (topic) {
+    queryStr += `&topic=${topic}`;
+  }
+  return newsApi.get(queryStr).then(({ data }) => {
+    return data.articles.length;
   });
 };
 
@@ -21,22 +31,24 @@ export const getSingleArticle = (article_id) => {
 };
 
 export const getComments = (article_id) => {
-  return newsApi.get(`/articles/${article_id}/comments?limit=10`).then(({ data }) => {
-    return data.comments;
-  });
+  return newsApi
+    .get(`/articles/${article_id}/comments?limit=10`)
+    .then(({ data }) => {
+      return data.comments;
+    });
 };
 
 export const getMoreComments = (article_id, pageNum) => {
-  return newsApi.get(`/articles/${article_id}/comments?p=${pageNum}`)
-  .then(({ data }) => {
-    return data.comments;
-  });
+  return newsApi
+    .get(`/articles/${article_id}/comments?p=${pageNum}`)
+    .then(({ data }) => {
+      return data.comments;
+    });
 };
 
 export const deleteComment = (comment_id) => {
-  return newsApi
-  .delete(`/comments/${comment_id}`)
-}
+  return newsApi.delete(`/comments/${comment_id}`);
+};
 
 export const getTopics = () => {
   return newsApi.get("/topics").then(({ data }) => {
