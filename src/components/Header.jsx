@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../contexts/User";
 import "../stylesheets/Header.css";
 
 function Header({ setCurrTopic }) {
+  const { loggedInUser } = useContext(UserContext);
   return (
     <nav className="header-nav">
       <Link className="header-link" to="/">
@@ -14,7 +17,15 @@ function Header({ setCurrTopic }) {
       >
         ARTICLES
       </Link>
-      <Link className="header-link">PROFILE</Link>
+      {loggedInUser ? (
+        <Link className="header-link" to={`/profile/${loggedInUser.username}`}>
+          PROFILE
+        </Link>
+      ) : (
+        <Link className="header-link" to="/login">
+          LOGIN
+        </Link>
+      )}
     </nav>
   );
 }

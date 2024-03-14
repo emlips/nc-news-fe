@@ -9,7 +9,7 @@ function Home({ setCurrTopic }) {
   return (
     <>
       <h1 className="home">NC News</h1>
-      <h2 className="home">Welcome back {loggedInUser.username}!</h2>
+      {loggedInUser ? <h2 className="home">Welcome back {loggedInUser.username}!</h2> : null}
       <HighlightArticles setCurrTopic={setCurrTopic} />
     </>
   );

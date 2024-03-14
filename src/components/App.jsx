@@ -8,6 +8,8 @@ import UserContext from "../contexts/User";
 import ErrorPage from "./ErrorPage";
 import "../stylesheets/App.css";
 import "../stylesheets/MediaQueries.css";
+import Profile from "./Profile";
+import Login from "./Login";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -28,6 +30,8 @@ function App() {
           element={<ErrorPage errorMsg={"Error 404: page not found"} />}
         />
         <Route path="/" element={<Home setCurrTopic={setCurrTopic} />} />
+        <Route path="/profile/:username" element={<Profile setLoggedInUser={setLoggedInUser} />} />
+        <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser} />} />
         <Route
           path="/articles"
           element={
