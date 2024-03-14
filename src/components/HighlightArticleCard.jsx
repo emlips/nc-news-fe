@@ -3,7 +3,7 @@ import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ".././stylesheets/HighlightArticleCard.css";
 
-function ArticleCard({ article, setCurrTopic }) {
+function HighlightArticleCard({ article, setCurrTopic }) {
   return (
     <>
       <div id="highlight-article-card">
@@ -43,4 +43,4 @@ function ArticleCard({ article, setCurrTopic }) {
   );
 }
 
-export default ArticleCard;
+export default HighlightArticleCard;

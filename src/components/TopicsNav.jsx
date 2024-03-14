@@ -14,35 +14,39 @@ function TopicsNav({ setCurrTopic, setArticlesPage, setSortBy, setOrder }) {
   fetchTopics();
 
   return (
-    <nav>
-      <Link
-        className="topics-link"
-        to={`/articles`}
-        key="all"
-        onClick={() => {
-          setCurrTopic(undefined);
-          setArticlesPage(1);
-          setSortBy("created_at");
-          setOrder("desc");
-        }}
-      >
-        All
-      </Link>
+    <nav id="topics-nav">
+      <div className="topics-nav-link" key="all">
+        <Link
+          className="topics-link"
+          to={`/articles`}
+          key="all"
+          onClick={() => {
+            setCurrTopic(undefined);
+            setArticlesPage(1);
+            setSortBy("created_at");
+            setOrder("desc");
+          }}
+        >
+          All
+        </Link>
+      </div>
       {topics.map((topic) => {
         return (
-          <Link
-            className="topics-link"
-            to={`/articles?topic=${topic.slug}`}
-            key={topic.slug}
-            onClick={() => {
-              setCurrTopic(topic.slug);
-              setArticlesPage(1);
-              setSortBy("created_at");
-              setOrder("desc");
-            }}
-          >
-            {topic.slug[0].toUpperCase() + topic.slug.slice(1).toLowerCase()}
-          </Link>
+          <div className="topics-nav-link" key={topic.slug}>
+            <Link
+              className="topics-link"
+              to={`/articles?topic=${topic.slug}`}
+              key={topic.slug}
+              onClick={() => {
+                setCurrTopic(topic.slug);
+                setArticlesPage(1);
+                setSortBy("created_at");
+                setOrder("desc");
+              }}
+            >
+              {topic.slug[0].toUpperCase() + topic.slug.slice(1).toLowerCase()}
+            </Link>
+          </div>
         );
       })}
     </nav>

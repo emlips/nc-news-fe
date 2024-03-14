@@ -28,7 +28,7 @@ function CommentCard({ comment, setComments, setCommentCount }) {
               : "just now"}
           </p>
           <p id="comment-body">{comment.body}</p>
-          <p>Votes: {comment.votes}</p>
+          <p id="vote-count">Votes: {comment.votes}</p>
         </div>
       ) : null}
     </>

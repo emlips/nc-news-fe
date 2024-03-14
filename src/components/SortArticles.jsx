@@ -1,8 +1,9 @@
 function SortArticles({ setSortBy, sortBy, setOrder, order, setArticlesPage }) {
   return (
     <form>
-      <label>Sort by:</label>
+      <label htmlFor="sort-by">Sort by:</label>
       <select
+        id="sort-by"
         defaultValue={sortBy}
         onChange={(e) => {
           setSortBy(e.target.value);
@@ -14,8 +15,9 @@ function SortArticles({ setSortBy, sortBy, setOrder, order, setArticlesPage }) {
         <option value="author">Author</option>
         <option value="votes">Votes</option>
       </select>
-      <label>Order:</label>
+      <label htmlFor="order">Order:</label>
       <select
+        id="order"
         defaultValue={order}
         onChange={(e) => {
           setOrder(e.target.value);

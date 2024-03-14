@@ -50,12 +50,14 @@ function Comments({ article }) {
       <button
         onClick={() => loadComments(-1)}
         disabled={commentPage === 1 ? true : false}
+        className="page-button"
       >
         Previous Page
       </button>
       <button
         onClick={() => loadComments(1)}
         disabled={commentPage === totalPages ? true : false}
+        className="page-button"
       >
         Next Page
       </button>

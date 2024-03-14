@@ -58,35 +58,42 @@ function Articles({ articles, setArticles, currTopic, setCurrTopic }) {
         setSortBy={setSortBy}
         setOrder={setOrder}
       />
-      {currTopic ? (
-        <h1 id="topic-heading">
-          {currTopic[0].toUpperCase() + currTopic.slice(1).toLowerCase()}
-        </h1>
-      ) : (
-        <h1 id="topic-heading">All</h1>
-      )}
-      <SortArticles
-        setSortBy={setSortBy}
-        sortBy={sortBy}
-        setOrder={setOrder}
-        order={order}
-        setArticlesPage={setArticlesPage}
-      />
-      <p>
-        Viewing page {articlesPage} of {Math.ceil(articlesCount / 10)}
-      </p>
-      <button
-        onClick={() => setArticlesPage(articlesPage - 1)}
-        disabled={articlesPage === 1 ? true : false}
-      >
-        Previous Page
-      </button>
-      <button
-        onClick={() => setArticlesPage(articlesPage + 1)}
-        disabled={articlesPage === Math.ceil(articlesCount / 10) ? true : false}
-      >
-        Next Page
-      </button>
+      <div id="articles-header">
+        {currTopic ? (
+          <h1 id="topic-heading">
+            {currTopic[0].toUpperCase() + currTopic.slice(1).toLowerCase()}{" "}
+            Articles
+          </h1>
+        ) : (
+          <h1 id="topic-heading">All Articles</h1>
+        )}
+        <SortArticles
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          setOrder={setOrder}
+          order={order}
+          setArticlesPage={setArticlesPage}
+        />
+        <p id="page-view">
+          Viewing page {articlesPage} of {Math.ceil(articlesCount / 10)}
+        </p>
+        <button
+          className="page-button"
+          onClick={() => setArticlesPage(articlesPage - 1)}
+          disabled={articlesPage === 1 ? true : false}
+        >
+          Previous Page
+        </button>
+        <button
+          className="page-button"
+          onClick={() => setArticlesPage(articlesPage + 1)}
+          disabled={
+            articlesPage === Math.ceil(articlesCount / 10) ? true : false
+          }
+        >
+          Next Page
+        </button>
+      </div>
       {articles.length > 0 ? (
         <div className="articles">
           {articles.map((article) => {

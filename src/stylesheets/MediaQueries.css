@@ -1,0 +1,152 @@
+@media only screen and (max-width: 400px) {
+  .home {
+    margin: 0.5em 0;
+  }
+  body {
+    margin: 0 0.5em;
+  }
+}
+
+/* Articles Page */
+@media only screen and (max-width: 400px) {
+  #article-card {
+    border: 2px solid aliceblue;
+    border-radius: 1px;
+    width: 90vw;
+    display: block;
+    align-items: center;
+    h1 {
+      height: auto;
+    }
+    img {
+      border-radius: 1px;
+      width: 100%;
+      height: 12em;
+    }
+    .icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: left;
+      p {
+        margin-right: 2em;
+      }
+    }
+  }
+  #topics-nav {
+    justify-content: space-evenly;
+  }
+}
+
+/* Single Article Page */
+@media only screen and (max-width: 400px) {
+  .single-article-card {
+    width: 100%;
+    padding: 0;
+    img {
+      margin-top: 0.5em;
+      width: 100%;
+      object-fit: cover;
+    }
+    p {
+      width: 100%;
+      text-align: justify;
+    }
+  }
+  .comments-section {
+    width: 100%;
+    padding: 0;
+  }
+  .comment-card {
+    margin: 0;
+    padding-left: 0;
+    background-color: aliceblue;
+    border-radius: 10px;
+    width: 100%;
+    p {
+      margin-left: 0.5em;
+    }
+    #vote-count {
+      padding-bottom: 0.5em;
+    }
+  }
+  #comment-body {
+    margin: 0 0 0 0.5em;
+    width: 91.5%;
+  }
+  #post-comment-block {
+    margin: 0;
+    padding-left: 0;
+    textarea {
+      margin-left: -0.5em;
+      border: 1px #333333 solid;
+      display: inline;
+      width: 95vw;
+      border-radius: 5px;
+      font-size: 1em;
+      padding: 0;
+    }
+    button {
+      width: 10em;
+      height: 2em;
+      background-color: lightsalmon;
+      border: none;
+    }
+    button:hover {
+      cursor: pointer;
+    }
+    button[disabled],
+    button[disabled]:hover {
+      background-color: lightgray;
+      color: gray;
+      cursor: not-allowed;
+    }
+  }
+
+  .delete-comment-section {
+    margin: 0;
+    padding-bottom: 0;
+    button {
+      margin-right: 0.5em;
+      border: 1px solid #333333;
+      background-color: white;
+    }
+  }
+}
+
+/* Home Page */
+@media only screen and (max-width: 400px) {
+  .highlight-block {
+    display: block;
+  }
+
+  .highlight-articles {
+    display: block;
+    border: 2px solid aliceblue;
+    border-radius: 5px;
+    padding: 0;
+    width: 93vw;
+    margin: 0.25em 0.25em 0.5em 0.25em;
+  }
+
+  .highlight-title {
+    font-size: 1.25em;
+  }
+
+  #highlight-article-card {
+    h2 {
+      font-size: 0.8em;
+      margin: 1em 0;
+    }
+    img {
+      border-radius: 3px;
+      height: 7.5em;
+      width: 7.5em;
+      object-fit: cover;
+    }
+    #info {
+      h1 {
+        font-size: 1em;
+      }
+    }
+  }
+}

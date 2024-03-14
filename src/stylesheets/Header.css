@@ -1,0 +1,12 @@
+.header-nav {
+  border: 2px solid lightsalmon;
+  /* background-color: #ffa07a99; */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header-link {
+  color: #333333;
+  text-decoration: none;
+  padding: 0 1em;
+}

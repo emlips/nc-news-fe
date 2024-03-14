@@ -5,11 +5,63 @@
   align-items: center;
 }
 
-.topics-link {
-  font-size: 1.25em;
+#articles-header {
+  margin-left: 0.5em;
+}
+
+#topics-nav {
+  border: none;
+  display: flex;
+  justify-content: left;
+}
+
+.topics-nav-link {
+  background-color: rgb(193, 228, 242);
+  border-radius: 20px;
+  width: 4em;
+  text-align: center;
+  padding: 0.25em 0.5em;
   margin-right: 0.5em;
 }
 
+.topics-link {
+  font-size: 1em;
+  text-decoration: none;
+  text-align: center;
+}
+
+.topics-link:hover {
+  text-decoration: underline;
+  background-color: rgb(193, 228, 242);
+}
+
 #topic-heading {
-  font-size: 1.5em;
+  margin: 1em 0 0.5em 0;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+form {
+  label {
+    font-size: 1.1em;
+    margin-right: 0.5em;
+  }
+  select {
+    margin-right: 1em;
+    font-size: 1em;
+    padding: 0.25em;
+    border: 1px solid #333333;
+    border-radius: 5px;
+  }
+}
+
+#page-view {
+  margin: 1.5em 0 0.5em 0;
+}
+
+.page-button {
+  font-size: 0.9em;
+  padding: 0.25em 0.5em;
+  background-color: aliceblue;
+  border: 1px solid #333333;
 }

@@ -1,8 +1,17 @@
+.highlight-block {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .highlight-articles {
-    display: block;
+  display: block;
+  border: 2px solid aliceblue;
+  border-radius: 5px;
+  padding: 0 0.5em;
+  width: 45%;
+  margin: 0 0.25em;
 }
 
 .highlight-title {
-    font-size: 1.25em;
+  font-size: 1.25em;
 }
-
