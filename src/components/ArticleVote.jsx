@@ -65,7 +65,7 @@ function ArticleVote({ article, setArticle }) {
             }
             disabled={hasVotedDown ? true : false}
           >
-            <ArrowUpwardOutlinedIcon fontSize="small" />
+            <ArrowUpwardOutlinedIcon fontSize="small" color={hasVotedDown ? "disabled" : "primary"}/>
           </button>
         </div>
         <div id="down-vote">

@@ -6,3 +6,11 @@
 body {
   margin: 0 1em;
 }
+
+button[disabled],
+    button[disabled]:hover {
+      border: 1px solid lightgray;
+      background-color: lightgray;
+      color: gray;
+      cursor: not-allowed;
+    }

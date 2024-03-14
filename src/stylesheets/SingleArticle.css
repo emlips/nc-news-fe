@@ -27,13 +27,13 @@ button {
   margin: 0.1em;
 }
 
-.up-voted {
+.up-vote {
   button {
     background-color: lightgreen;
   }
 }
 
-.down-voted {
+.down-vote {
   button {
     background-color: lightcoral;
   }
