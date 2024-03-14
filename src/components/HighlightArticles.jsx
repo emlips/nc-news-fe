@@ -9,26 +9,22 @@ function HighlightArticles({ setCurrTopic }) {
   const [popularArticles, setPopularArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchRecentArticles = () => {
-    setIsLoading(true)
-    getArticles(undefined, "created_at", "desc", 1).then((articlesFromApi) => {
-      setRecentArticles(articlesFromApi);
-    });
-  };
-
-  const fetchPopularArticles = () => {
-    getArticles(undefined, "votes", "desc", 1).then((articlesFromApi) => {
-      setIsLoading(false)
-      setPopularArticles(articlesFromApi);
+  const fetchArticles = () => {
+    setIsLoading(true);
+    const recent = getArticles(undefined, "created_at", "desc", 1);
+    const popular = getArticles(undefined, "votes", "desc", 1);
+    Promise.all([recent, popular]).then((articlesFromApi) => {
+      setRecentArticles(articlesFromApi[0]);
+      setPopularArticles(articlesFromApi[1]);
+      setIsLoading(false);
     });
   };
 
   useEffect(() => {
-    fetchRecentArticles();
-    fetchPopularArticles();
+    fetchArticles();
   }, []);
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <>
