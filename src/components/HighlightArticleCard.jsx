@@ -12,17 +12,19 @@ function ArticleCard({ article, setCurrTopic }) {
         </div>
         <div id="info">
           <h1>{article.title}</h1>
-          <Link to={`/articles?topic=${article.topic}`} key={article.topic} onClick={() => {
+          <Link className="highlight-topic-link" to={`/articles?topic=${article.topic}`} key={article.topic} onClick={() => {
               setCurrTopic(article.topic)
             }} ><h2>{article.topic[0].toUpperCase() + article.topic.slice(1)}</h2></Link>
-          <p>
-            <ModeCommentOutlinedIcon />
-            {article.comment_count}
-          </p>
+            <div className="icons">
           <p>
             <ThumbUpOutlinedIcon />
             {article.votes}
           </p>
+          <p>
+            <ModeCommentOutlinedIcon />
+            {article.comment_count}
+          </p>
+          </div>
         </div>
       </div>
     </Link>

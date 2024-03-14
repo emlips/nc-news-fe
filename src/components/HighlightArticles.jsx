@@ -27,7 +27,7 @@ function HighlightArticles({ setCurrTopic }) {
 
   return (
     <>
-      <h1>Latest:</h1>
+      <h1 className="highlight-title">Recent articles:</h1>
       <div className="highlight-articles">
         {recentArticles.splice(0, 4).map((article) => {
           return (
@@ -39,7 +39,7 @@ function HighlightArticles({ setCurrTopic }) {
           );
         })}
       </div>
-      <h1>Popular:</h1>
+      <h1 className="highlight-title">Most popular:</h1>
       <div className="highlight-articles">
         {popularArticles.splice(0, 4).map((article) => {
           return (
