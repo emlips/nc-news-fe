@@ -7,8 +7,10 @@ import ".././stylesheets/HighlightArticleCard.css";
 function HighlightArticles({ setCurrTopic }) {
   const [recentArticles, setRecentArticles] = useState([]);
   const [popularArticles, setPopularArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchRecentArticles = () => {
+    setIsLoading(true)
     getArticles(undefined, "created_at", "desc", 1).then((articlesFromApi) => {
       setRecentArticles(articlesFromApi);
     });
@@ -16,6 +18,7 @@ function HighlightArticles({ setCurrTopic }) {
 
   const fetchPopularArticles = () => {
     getArticles(undefined, "votes", "desc", 1).then((articlesFromApi) => {
+      setIsLoading(false)
       setPopularArticles(articlesFromApi);
     });
   };
@@ -24,6 +27,8 @@ function HighlightArticles({ setCurrTopic }) {
     fetchRecentArticles();
     fetchPopularArticles();
   }, []);
+
+  if (isLoading) return <p>Loading...</p>
 
   return (
     <>
