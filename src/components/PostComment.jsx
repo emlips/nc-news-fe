@@ -7,24 +7,30 @@ function PostComment({
   article,
   setComments,
   setCommentCount,
-  setCommentPage,
 }) {
   const { loggedInUser } = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
+  const [isPostError, setIsPostError] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postComment(article.article_id, loggedInUser.username, newComment).then(
-      (newCommentFromApi) => {
-        setNewComment("");
-        setCommentCount((currCount) => {
-          return currCount + 1;
-        });
-        setComments((currComments) => {
-          return [newCommentFromApi, ...currComments];
-        });
-      }
-    );
+    if (loggedInUser) {
+      postComment(article.article_id, loggedInUser.username, newComment).then(
+        (newCommentFromApi) => {
+          setNewComment("");
+          setCommentCount((currCount) => {
+            return currCount + 1;
+          });
+          setComments((currComments) => {
+            return [newCommentFromApi, ...currComments];
+          });
+        }
+      );
+    }
+    else {
+      setIsPostError(true)
+      setNewComment("")
+    }
   };
 
   return (
@@ -39,6 +45,7 @@ function PostComment({
       <button type="submit" disabled={!(newComment.length > 0) ? true : false}>
         Post Comment
       </button>
+      {isPostError ? <p>Please login to post a comment!</p> : null}
     </form>
   );
 }

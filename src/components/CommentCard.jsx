@@ -11,7 +11,7 @@ function CommentCard({ comment, setComments, setCommentCount }) {
         <div className="comment-card">
           <div className="delete-comment-section">
             <p id="comment-author">{comment.author}</p>
-            {comment.author === loggedInUser.username ? (
+            {loggedInUser && comment.author === loggedInUser.username ? (
               <DeleteComment
                 comment={comment}
                 setComments={setComments}
