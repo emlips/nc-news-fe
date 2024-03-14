@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import HighlightArticleCard from "./HighlightArticleCard";
-import '.././stylesheets/HighlightArticles.css'
-import '.././stylesheets/HighlightArticleCard.css'
+import ".././stylesheets/HighlightArticles.css";
+import ".././stylesheets/HighlightArticleCard.css";
 
-function HighlightArticles() {
+function HighlightArticles({ setCurrTopic }) {
   const [recentArticles, setRecentArticles] = useState([]);
   const [popularArticles, setPopularArticles] = useState([]);
 
@@ -31,7 +31,11 @@ function HighlightArticles() {
       <div className="highlight-articles">
         {recentArticles.splice(0, 4).map((article) => {
           return (
-            <HighlightArticleCard key={article.article_id} article={article} />
+            <HighlightArticleCard
+              key={article.article_id}
+              article={article}
+              setCurrTopic={setCurrTopic}
+            />
           );
         })}
       </div>
@@ -39,7 +43,11 @@ function HighlightArticles() {
       <div className="highlight-articles">
         {popularArticles.splice(0, 4).map((article) => {
           return (
-            <HighlightArticleCard key={article.article_id} article={article} />
+            <HighlightArticleCard
+              key={article.article_id}
+              article={article}
+              setCurrTopic={setCurrTopic}
+            />
           );
         })}
       </div>

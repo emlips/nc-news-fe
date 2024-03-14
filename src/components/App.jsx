@@ -9,6 +9,7 @@ import ErrorPage from "./ErrorPage";
 
 function App() {
   const [articles, setArticles] = useState([]);
+  const [currTopic, setCurrTopic] = useState(undefined);
   const [loggedInUser, setLoggedInUser] = useState({
     username: "happyamy2016",
     name: "Amy Happy",
@@ -18,16 +19,23 @@ function App() {
 
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
-      <Header />
+      <Header setCurrTopic={setCurrTopic} />
       <Routes>
         <Route
           path="*"
           element={<ErrorPage errorMsg={"Error 404: page not found"} />}
         />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home setCurrTopic={setCurrTopic} />} />
         <Route
           path="/articles"
-          element={<Articles articles={articles} setArticles={setArticles} />}
+          element={
+            <Articles
+              articles={articles}
+              setArticles={setArticles}
+              currTopic={currTopic}
+              setCurrTopic={setCurrTopic}
+            />
+          }
         />
         <Route
           path="articles?topic=:topic"

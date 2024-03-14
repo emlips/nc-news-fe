@@ -8,9 +8,8 @@ import ".././stylesheets/ArticleCard.css";
 import ".././stylesheets/Articles.css";
 import ErrorPage from "./ErrorPage";
 
-function Articles({ articles, setArticles }) {
+function Articles({ articles, setArticles, currTopic, setCurrTopic }) {
   const [error, setError] = useState(null);
-  const [currTopic, setCurrTopic] = useState(undefined);
   const [sortBy, setSortBy] = useState("created_at");
   const [order, setOrder] = useState("desc");
   const [isLoading, setIsLoading] = useState(true);
