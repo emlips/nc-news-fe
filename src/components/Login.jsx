@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUsers } from "../api";
 import { useNavigate } from "react-router-dom";
+import "../stylesheets/Login.css";
 
 function Login({ setLoggedInUser }) {
   const [users, setUsers] = useState([]);
@@ -23,18 +24,22 @@ function Login({ setLoggedInUser }) {
   }, []);
 
   return (
-    <form>
-      <label htmlFor="users">Select user:</label>
-      <select id="users" onChange={(e) => loginUser(e.target.value)}>
-        {users.map((user) => {
-          return (
-            <option value={user.username} key={user.username}>
-              {user.username}
-            </option>
-          );
-        })}
-      </select>
-    </form>
+    <div className="login" id="login-media">
+      <h1 id="login-title">Hello! Please select a user to login:</h1>
+      <form id="login-form">
+        <label htmlFor="users"></label>
+        <select id="users" onChange={(e) => loginUser(e.target.value)}>
+          <option></option>
+          {users.map((user) => {
+            return (
+              <option value={user.username} key={user.username}>
+                {user.username}
+              </option>
+            );
+          })}
+        </select>
+      </form>
+    </div>
   );
 }
 
