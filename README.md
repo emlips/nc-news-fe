@@ -30,7 +30,7 @@ Navigate to the repository:
 $ cd nc-news-fe
 ```
 
-### 2. Instal the dependencies
+### 2. Install the dependencies
 
 Use the `npm install` command to install the dependencies:
 ```
