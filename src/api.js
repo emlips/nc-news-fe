@@ -4,6 +4,12 @@ const newsApi = axios.create({
   baseURL: "https://nc-news-1d1v.onrender.com/api",
 });
 
+export const getUsers = () => {
+  return newsApi.get(`/users`).then(({ data }) => {
+    return data.users;
+  });
+}
+
 export const getArticles = (topic, sortBy, order, page) => {
   let queryStr = `/articles?sort_by=${sortBy}&order=${order}&p=${page}`;
   if (topic) {
