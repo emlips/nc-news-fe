@@ -1,4 +1,4 @@
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   .home {
     margin: 0.5em 0;
   }
@@ -8,7 +8,7 @@
 }
 
 /* Articles Page */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   #article-card {
     border: 2px solid aliceblue;
     border-radius: 1px;
@@ -38,7 +38,7 @@
 }
 
 /* Single Article Page */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   .single-article-card {
     width: 100%;
     padding: 0;
@@ -114,7 +114,7 @@
 }
 
 /* Home Page */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   .highlight-block {
     display: block;
   }
