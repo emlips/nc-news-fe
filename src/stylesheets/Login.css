@@ -1,0 +1,20 @@
+.login {
+    border: aliceblue 5px solid;
+    border-radius: 10px;
+    margin: 2em auto;
+    padding: 1em 5em;
+    width: 20em;
+    h1 {
+        font-weight: 300;
+        font-size: 1.5em;
+        margin-bottom: 2em;
+    }
+    form {
+        margin: 2em 0;
+    }
+    select {
+        margin: 0 0 0 -0.5em;
+        width: 100%;
+        border: 2px lightsalmon solid;
+    }
+}
