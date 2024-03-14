@@ -103,6 +103,25 @@ function Articles({ articles, setArticles, currTopic, setCurrTopic }) {
       ) : (
         <h2>No articles to show...</h2>
       )}
+      <p id="page-view">
+          Viewing page {articlesPage} of {Math.ceil(articlesCount / 10)}
+        </p>
+        <button
+          className="page-button"
+          onClick={() => setArticlesPage(articlesPage - 1)}
+          disabled={articlesPage === 1 ? true : false}
+        >
+          Previous Page
+        </button>
+        <button
+          className="page-button"
+          onClick={() => setArticlesPage(articlesPage + 1)}
+          disabled={
+            articlesPage === Math.ceil(articlesCount / 10) ? true : false
+          }
+        >
+          Next Page
+        </button>
     </>
   );
 }
