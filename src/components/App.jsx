@@ -6,6 +6,8 @@ import Articles from "./Articles";
 import SingleArticle from "./SingleArticle";
 import UserContext from "../contexts/User";
 import ErrorPage from "./ErrorPage";
+import "../stylesheets/App.css";
+import "../stylesheets/MediaQueries.css";
 
 function App() {
   const [articles, setArticles] = useState([]);

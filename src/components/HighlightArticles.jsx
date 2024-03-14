@@ -27,9 +27,9 @@ function HighlightArticles({ setCurrTopic }) {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <>
-      <h1 className="highlight-title">Recent articles:</h1>
+    <div className="highlight-block">
       <div className="highlight-articles">
+        <h1 className="highlight-title">Recent articles:</h1>
         {recentArticles.splice(0, 4).map((article) => {
           return (
             <HighlightArticleCard
@@ -40,8 +40,8 @@ function HighlightArticles({ setCurrTopic }) {
           );
         })}
       </div>
-      <h1 className="highlight-title">Most popular:</h1>
       <div className="highlight-articles">
+        <h1 className="highlight-title">Most popular:</h1>
         {popularArticles.splice(0, 4).map((article) => {
           return (
             <HighlightArticleCard
@@ -52,7 +52,7 @@ function HighlightArticles({ setCurrTopic }) {
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 
