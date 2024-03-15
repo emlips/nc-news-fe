@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SingleArticleCard from "./SingleArticleCard";
 import Comments from "./Comments";
+import HighlightArticles from "./HighlightArticles";
 import { getSingleArticle } from "../api";
 import ".././stylesheets/SingleArticle.css";
 import ErrorPage from "./ErrorPage";
@@ -38,10 +39,11 @@ function SingleArticle() {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <>
-      <SingleArticleCard article={article} setArticle={setArticle} />
-      <Comments article={article} />
-    </>
+    <div id="single-article-page">
+      <SingleArticleCard article={article} setArticle={setArticle} id="single-article-card"/>
+      <Comments article={article} id="comments"/>
+      <HighlightArticles id="highlight-articles-column" />
+    </div>
   );
 }
 
