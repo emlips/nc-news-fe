@@ -155,7 +155,7 @@
 @media only screen and (max-width: 600px) {
   #login-media {
     width: 80vw;
-    height: 15em;
+    height: auto;
     margin: 2em auto;
     padding: 1em;
     #login-title {
@@ -163,15 +163,53 @@
       font-size: 1.5em;
       margin: 1em;
     }
-    #login-form {
-      margin: 1em;
-    }
-    select {
-      font-size: 1em;
-      margin: 2em 0 0 -0.5em;
-      width: 100%;
-      border: 2px lightsalmon solid;
-    }
+    #user-cards {
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+  }
+  .user-card {
+      padding: 0.5em;
+      border: 2px solid lightsalmon;
+      background-color: #ffa07a44;
+      border-radius: 10px;
+      margin: 0.5em 0.25em;
+      width: 8em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      img {
+          background-color: white;
+          border: 3px dotted lightsalmon;
+          border-radius: 50%;
+          width: 5em;
+          height: 5em;
+          object-fit: contain;
+          padding: 1em;
+      }
+      p {
+          text-align: center;
+          font-size: 1em;
+          font-weight: 300;
+      }
+  }
+  .user-login-link {
+      text-decoration: none;
+  }
   }
 }
 
+/* Profile Page */
+@media only screen and (max-width: 600px) {
+  #profile-media {
+    padding: 1em;
+    width: 80vw;
+    vertical-align: middle;
+    img {
+      margin: auto;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}

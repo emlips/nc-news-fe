@@ -2,19 +2,47 @@
     border: aliceblue 5px solid;
     border-radius: 10px;
     margin: 2em auto;
-    padding: 1em 5em;
-    width: 20em;
+    padding: 1em 0;
+    width: 90%;
+    max-width: 60em;
     h1 {
+        text-align: center;
         font-weight: 300;
         font-size: 1.5em;
-        margin-bottom: 2em;
+        margin: 1em;
     }
-    form {
-        margin: 2em 0;
+    #user-cards {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
     }
-    select {
-        margin: 0 0 0 -0.5em;
-        width: 100%;
-        border: 2px lightsalmon solid;
+    .user-card {
+        padding: 0.5em;
+        border: 2px solid lightsalmon;
+        background-color: #ffa07a44;
+        border-radius: 10px;
+        margin: 0.5em 0.25em;
+        width: 11em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        img {
+            background-color: white;
+            border: 3px dotted lightsalmon;
+            border-radius: 50%;
+            width: 8em;
+            height: 8em;
+            object-fit: contain;
+            padding: 1em;
+        }
+        p {
+            text-align: center;
+            font-size: 1.25em;
+            font-weight: 300;
+        }
+    }
+    .user-login-link {
+        text-decoration: none;
     }
 }
