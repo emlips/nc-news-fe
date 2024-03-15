@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SingleArticleCard from "./SingleArticleCard";
 import Comments from "./Comments";
-import HighlightArticles from "./HighlightArticles";
 import { getSingleArticle } from "../api";
 import ".././stylesheets/SingleArticle.css";
 import ErrorPage from "./ErrorPage";
+import HighlightBanner from "./HighlightBanner";
 
 function SingleArticle() {
   const [error, setError] = useState(null);
@@ -18,6 +18,7 @@ function SingleArticle() {
       .then((articleFromApi) => {
         setArticle(articleFromApi);
         setIsLoading(false);
+        window.scrollTo(0,0)
       })
       .catch(({ response }) => {
         if (response.status === 400) {
@@ -42,7 +43,7 @@ function SingleArticle() {
     <div id="single-article-page">
       <SingleArticleCard article={article} setArticle={setArticle} id="single-article-card"/>
       <Comments article={article} id="comments"/>
-      <HighlightArticles id="highlight-articles-column" />
+      <HighlightBanner id="highlight-articles-column" article_id={article_id}/>
     </div>
   );
 }

@@ -1,5 +1,10 @@
 .comments-section {
   padding-left: 1em;
-  margin-top: 2em;
+  margin-top: 3em;
   max-width: 50em;
+}
+
+#loading-comments {
+  text-align: left;
+  margin-top: 2em
 }

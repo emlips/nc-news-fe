@@ -4,18 +4,14 @@ import HighlightArticleCard from "./HighlightArticleCard";
 import ".././stylesheets/HighlightArticles.css";
 import ".././stylesheets/HighlightArticleCard.css";
 
-function HighlightArticles({ setCurrTopic, article_id}) {
+function HighlightBanner({ setCurrTopic, article_id}) {
   const [recentArticles, setRecentArticles] = useState([]);
-  const [popularArticles, setPopularArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchArticles = () => {
     setIsLoading(true);
-    const recent = getArticles(undefined, "created_at", "desc", 1);
-    const popular = getArticles(undefined, "votes", "desc", 1);
-    Promise.all([recent, popular]).then((articlesFromApi) => {
-      setRecentArticles(articlesFromApi[0]);
-      setPopularArticles(articlesFromApi[1]);
+    getArticles(undefined, "created_at", "desc", 1).then((articlesFromApi) => {
+      setRecentArticles(articlesFromApi);
       setIsLoading(false);
     });
   };
@@ -30,19 +26,7 @@ function HighlightArticles({ setCurrTopic, article_id}) {
     <div className="highlight-block">
       <div className="highlight-articles">
         <h1 className="highlight-title">Recent articles:</h1>
-        {recentArticles.splice(0, 4).map((article) => {
-          return (
-            <HighlightArticleCard
-              key={article.article_id}
-              article={article}
-              setCurrTopic={setCurrTopic}
-            />
-          );
-        })}
-      </div>
-      <div className="highlight-articles">
-        <h1 className="highlight-title">Most popular:</h1>
-        {popularArticles.splice(0, 4).map((article) => {
+        {recentArticles.map((article) => {
           return (
             <HighlightArticleCard
               key={article.article_id}
@@ -56,4 +40,4 @@ function HighlightArticles({ setCurrTopic, article_id}) {
   );
 }
 
-export default HighlightArticles;
+export default HighlightBanner;

@@ -5,6 +5,7 @@ import { getComments, getMoreComments } from "../api";
 import "../stylesheets/Comments.css";
 
 function Comments({ article }) {
+  const [isLoading, setIsLoading] = useState(true)
   const [comments, setComments] = useState([]);
   const [commentPage, setCommentPage] = useState(1);
   const [commentCount, setCommentCount] = useState(article.comment_count);
@@ -12,10 +13,14 @@ function Comments({ article }) {
   let totalPages = Math.ceil(commentCount / 10);
 
   useEffect(() => {
+    setIsLoading(true)
     getComments(article.article_id).then((commentsFromApi) => {
       setComments(commentsFromApi);
+      setCommentCount(article.comment_count);
+      setCommentPage(1)
+      setIsLoading(false)
     });
-  }, []);
+  }, [article]);
 
   const loadComments = (num) => {
     const page = commentPage + num;
@@ -26,6 +31,8 @@ function Comments({ article }) {
       });
     });
   };
+
+  if (isLoading) return <p id='loading-comments'>Loading comments...</p>;
 
   return (
     <section className="comments-section">
