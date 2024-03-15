@@ -1,28 +1,33 @@
 .profile {
-    border: aliceblue 5px solid;
-    border-radius: 10px;
-    margin: 2em auto;
-    padding: 1em 5em;
-    width: 20em;
-    vertical-align: middle;
-   h1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: aliceblue 5px solid;
+  border-radius: 10px;
+  margin: 2em auto;
+  padding: 1em 5em;
+  width: 20em;
+  vertical-align: middle;
+  h1 {
     font-weight: 300;
     text-align: center;
-   }
-    img {
-    width: 20em;
+  }
+  img {
+    width: 6em;
     object-fit: contain;
-    }
-    button {
-        background-color: lightsalmon;
-        border: none;
-        padding: 0.5em 1em;
-        display: block;
-        font-size: 1.5em;
-        font-weight: 350;
-        margin: 3em auto 1em auto;
-    }
-    #logout-link {
-        text-decoration: none;
-    }
+    margin: 0 6em;
+  }
+  button {
+    background-color: lightsalmon;
+    border: none;
+    padding: 0.5em 1em;
+    display: block;
+    font-size: 1em;
+    font-weight: 350;
+    margin: 3em auto 1em auto;
+  }
+  #logout-link {
+    text-decoration: none;
+  }
 }

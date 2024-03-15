@@ -12,27 +12,24 @@
         margin: 1em;
     }
     #user-cards {
-        margin: 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
     }
     .user-card {
         padding: 0.5em;
-        border: 2px solid lightsalmon;
-        background-color: #ffa07a44;
+        border: 2px dotted lightsalmon;
         border-radius: 10px;
         margin: 0.5em 0.25em;
-        width: 11em;
+        width: 8em;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
         img {
             background-color: white;
-            border: 3px dotted lightsalmon;
             border-radius: 50%;
-            width: 8em;
-            height: 8em;
+            width: 5em;
+            height: 5em;
             object-fit: contain;
             padding: 1em;
         }
