@@ -11,11 +11,11 @@ function Profile({ setLoggedInUser }) {
   };
 
   return (
-    <div className="profile">
-      <h1>Hello, {loggedInUser.username}!</h1>
-      <img src={loggedInUser.avatar_url} alt={loggedInUser.username}></img>
+    <div className="profile" id="profile-media">
+      <h1 id="profile-header">Hello, {loggedInUser.username}!</h1>
+      <img id="profile-image" src={loggedInUser.avatar_url} alt={loggedInUser.username}></img>
       <Link to="/" id="logout-link">
-        <button onClick={handleClick}>Log out</button>
+        <button id="logout-button" onClick={handleClick}>Log out</button>
       </Link>
     </div>
   );
