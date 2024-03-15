@@ -58,6 +58,7 @@ function ArticleVote({ article, setArticle }) {
         <div id="up-vote">
           <button
             onClick={upVote}
+            aria-label="up-vote"
             style={
               hasVotedUp
                 ? { backgroundColor: "lightGreen" }
@@ -71,6 +72,7 @@ function ArticleVote({ article, setArticle }) {
         <div id="down-vote">
           <button
             onClick={downVote}
+            aria-label="down-vote"
             style={
               hasVotedDown
                 ? { backgroundColor: "lightCoral" }

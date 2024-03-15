@@ -33,7 +33,7 @@ function Login({ setLoggedInUser }) {
             className="user-login-link"
           >
             <div className="user-card">
-              <img src={user.avatar_url}></img>
+              <img src={user.avatar_url} alt={`${user.username} profile picture`}></img>
               <p>{user.username}</p>
             </div>
           </Link>
