@@ -15,7 +15,7 @@ function Profile({ setLoggedInUser }) {
     <>
     <div className="profile" id="profile-media">
       <h1 id="profile-header">Hello, {loggedInUser.username}!</h1>
-      <img id="profile-image" src={loggedInUser.avatar_url} alt={loggedInUser.username}></img>
+      <img id="profile-image" src={loggedInUser.avatar_url} alt={`${loggedInUser.username} profile picture`}></img>
       <Link to="/" id="logout-link">
         <button id="logout-button" onClick={handleClick}>Log out</button>
       </Link>

@@ -35,7 +35,7 @@ function PostComment({
 
   return (
     <form id="post-comment-block" onSubmit={handleSubmit}>
-      <label htmlFor="new-comment-input"></label>
+      <label htmlFor="new-comment-input">Add a comment below:</label>
       <textarea
         id="new-comment-input"
         multiline="true"
