@@ -2,10 +2,10 @@ import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ArrowUpwardOutlinedIcon from "@mui/icons-material/ArrowUpwardOutlined";
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import { useState } from "react";
-import { patchArticle } from "../api";
+import { patchComment } from "../api";
 
-function ArticleVote({ article }) {
-  const [votes, setVotes] = useState(article.votes);
+function CommentVote({ comment }) {
+  const [votes, setVotes] = useState(comment.votes);
   const [hasVotedUp, setHasVotedUp] = useState(false);
   const [hasVotedDown, setHasVotedDown] = useState(false);
 
@@ -14,7 +14,7 @@ function ArticleVote({ article }) {
     setVotes((currVotes) => {
       return currVotes + num;
     });
-    patchArticle(article.article_id, voteChange).catch((err) => {
+    patchComment(comment.comment_id, voteChange).catch((err) => {
       setVotes((currVotes) => {
         return currVotes - num;
       });
@@ -42,8 +42,8 @@ function ArticleVote({ article }) {
   };
 
   return (
-    <>
-      <p>
+    <div className="comment-vote-section">
+      <p id="comment-count">
         <ThumbUpOutlinedIcon />
         {votes}
       </p>
@@ -60,7 +60,10 @@ function ArticleVote({ article }) {
             }
             disabled={hasVotedDown ? true : false}
           >
-            <ArrowUpwardOutlinedIcon fontSize="small" color={hasVotedDown ? "disabled" : "primary"}/>
+            <ArrowUpwardOutlinedIcon
+              fontSize="small"
+              color={hasVotedDown ? "disabled" : "primary"}
+            />
           </button>
         </div>
         <div id="down-vote">
@@ -78,8 +81,8 @@ function ArticleVote({ article }) {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default ArticleVote;
+export default CommentVote;

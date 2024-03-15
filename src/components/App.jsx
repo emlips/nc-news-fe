@@ -30,8 +30,14 @@ function App() {
           element={<ErrorPage errorMsg={"Error 404: page not found"} />}
         />
         <Route path="/" element={<Home setCurrTopic={setCurrTopic} />} />
-        <Route path="/profile/:username" element={<Profile setLoggedInUser={setLoggedInUser} />} />
-        <Route path="/login" element={<Login setLoggedInUser={setLoggedInUser} />} />
+        <Route
+          path="/profile/:username"
+          element={<Profile setLoggedInUser={setLoggedInUser} />}
+        />
+        <Route
+          path="/login"
+          element={<Login setLoggedInUser={setLoggedInUser} />}
+        />
         <Route
           path="/articles"
           element={
@@ -47,7 +53,10 @@ function App() {
           path="articles?topic=:topic"
           element={<Articles articles={articles} setArticles={setArticles} />}
         />
-        <Route path="/articles/:article_id" element={<SingleArticle />} />
+        <Route
+          path="/articles/:article_id"
+          element={<SingleArticle setCurrTopic={setCurrTopic} />}
+        />
       </Routes>
     </UserContext.Provider>
   );

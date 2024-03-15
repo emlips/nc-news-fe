@@ -41,7 +41,7 @@ function SingleArticle() {
 
   return (
     <div id="single-article-page">
-      <SingleArticleCard article={article} setArticle={setArticle} id="single-article-card"/>
+      <SingleArticleCard article={article} id="single-article-card"/>
       <Comments article={article} id="comments"/>
       <HighlightBanner id="highlight-articles-column" article_id={article_id}/>
     </div>

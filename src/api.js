@@ -62,6 +62,10 @@ export const getTopics = () => {
   });
 };
 
+export const patchComment = (comment_id, vote) => {
+  return newsApi.patch(`/comments/${comment_id}`, vote);
+}
+
 export const postComment = (article_id, username, newComment) => {
   const commentToPost = {
     username: username,

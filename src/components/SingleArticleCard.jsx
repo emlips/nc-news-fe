@@ -1,7 +1,7 @@
 import ArticleVote from "./ArticleVote";
 import ".././stylesheets/SingleArticle.css";
 
-function SingleArticleCard({ article, setArticle }) {
+function SingleArticleCard({ article }) {
   return (
     <>
       <div className="single-article-card">
@@ -10,7 +10,7 @@ function SingleArticleCard({ article, setArticle }) {
         {article.created_at ? (
           <p>Posted {article.created_at.slice(0, 10)}</p>
         ) : null}
-        <ArticleVote article={article} setArticle={setArticle} />
+        <ArticleVote article={article} />
         <img src={article.article_img_url} alt="" />
         <p>{article.body}</p>
       </div>

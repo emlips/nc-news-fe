@@ -2,6 +2,7 @@ import { useContext } from "react";
 import UserContext from "../contexts/User";
 import ".././stylesheets/CommentCard.css";
 import DeleteComment from "./DeleteComment";
+import CommentVote from "./CommentVote";
 
 function CommentCard({ comment, setComments, setCommentCount }) {
   const { loggedInUser } = useContext(UserContext);
@@ -28,7 +29,7 @@ function CommentCard({ comment, setComments, setCommentCount }) {
               : "just now"}
           </p>
           <p id="comment-body">{comment.body}</p>
-          <p id="vote-count">Votes: {comment.votes}</p>
+          <CommentVote comment={comment}/>
         </div>
       ) : null}
     </>

@@ -57,7 +57,7 @@
     padding: 0;
   }
   .comment-card {
-    margin: 0;
+    margin: 1em 0;
     padding-left: 0;
     background-color: aliceblue;
     border-radius: 10px;
@@ -77,7 +77,7 @@
     margin: 0;
     padding-left: 0;
     textarea {
-      margin-left: -0.5em;
+      margin-left: 0em;
       border: 1px #333333 solid;
       display: inline;
       width: 95vw;
